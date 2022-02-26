@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import Header from "./components/Header";
+import MainComponent from "./components/MainComponent";
+import { useDispatch } from "react-redux";
+import { ridesActions } from "./store/ridesSlice";
+import { userActions } from "./store/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchRides = async () => {
+      const response = await fetch("/rides");
+      const data = await response.json();
+      dispatch(ridesActions.setRides(data));
+    };
+
+    const fetchUser = async () => {
+      const response = await fetch("/user");
+      const data = await response.json();
+      dispatch(userActions.setUser(data));
+    };
+
+    fetchUser();
+    fetchRides();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <MainComponent />
+    </>
   );
 }
 

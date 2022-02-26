@@ -1,13 +1,205 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --black : #101010;
+  --black2 : #171717;
+  --gray : #292929;
+  --white2 : #D0CBCB;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+  background: var(--gray);
+}
+
+section{
+  padding: 1.5rem 5%;
+ 
+}
+
+header{
+  background: var(--black);
+  color: #fff;
+  padding: 1.5rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo{
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+header .user-info{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+header .user-info h2{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header .user-info img{
+  width: 4rem;
+  border-radius: 50%;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 0;
+}
+
+nav ul{
+  display: flex;
+  gap: 3rem;
+}
+
+nav ul li{
+  list-style: none;
+  color: var(--white2);
+  font-size: 1.8rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+nav ul li:hover,
+nav ul li.active{
+ color: #fff;
+ border-bottom: .2rem solid #fff;
+}
+
+nav .filters{
+  background: var(--black);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.filters select{
+  background: var(--gray);
+  width: 15rem;
+  color: white;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  padding: .8rem;
+}
+
+.filters select option{
+  font-size: 1.6rem;
+}
+
+.filters select:first-child{
+  margin-right: 4rem;
+}
+
+.rides .ride{
+  width: 100%;
+  background: var(--black2);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  display: flex;
+  gap: 3rem;
+  margin: 1.5rem 0;
+}
+
+.rides .ride .imgBx{
+
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 20rem;
+  height: 18rem;
+}
+
+.rides .ride .imgBx img{
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rides .ride .user-details{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.rides .ride .user-details .details{
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--white2);
+  line-height: 3.5rem;
+}
+
+.rides .ride .user-details .details span{
+ color: #fff;
+ margin-left: 2rem;
+}
+.rides .message{
+  font-size: 3.8rem;
+  color: #d0c5ac;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.rides .ride .user-details .location{
+  color: #fff;
+  display: flex;
+  font-size: 1.2rem;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.rides .ride .user-details .location div{
+  background: var(--black);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+
+
+
+
+
+@media(max-width :600px){
+  html{
+    font-size: 50%;
+  }
+  nav{
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .rides .ride{
+    padding: 2rem;
+    flex-direction: column;
+  }
+  .rides .ride .imgBx {
+    width: 100%;
+    height: 25rem;
+}
+.rides .ride .imgBx img{
+ 
+  
+}
+.rides .ride .user-details {
+  flex-direction: column;
+}
+
+.rides .ride .user-details .location {
+  margin-top: 2rem;
+}
+
 }
